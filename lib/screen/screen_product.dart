@@ -40,53 +40,55 @@ class _ProductScreenState extends State<ProductScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Colors.deepPurple),
-                color: Colors.deepPurple,
-              ),
-              width: width,
-              height: height * 0.2,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal, // 가로 스크롤을 위한 설정
-                itemCount: widget.data.length,
-                itemBuilder: (context, index) {
-                  Product product = widget.data[index];
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.deepPurple),
+                  color: Colors.deepPurple,
+                ),
+                width: width-30,
+                height: height * 0.3,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal, // 가로 스크롤을 위한 설정
+                  itemCount: widget.data.length,
+                  itemBuilder: (context, index) {
+                    Product product = widget.data[index];
 
-                  return Row(
-                    children: [
-                      // Checkbox(
-                      //   value: isCheckedList[index],
-                      //   onChanged: (bool? value) {
-                      //     setState(() {
-                      //       isCheckedList[index] = value ?? false;
-                      //     });
-                      //   },
-                      // ),
-                      Container(
-                        // width: width * widget.data.length/6, // 가로 공간을 적절히 나누세요
-                        padding: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(10),
+                    return Row(
+                      children: [
+                        // Checkbox(
+                        //   value: isCheckedList[index],
+                        //   onChanged: (bool? value) {
+                        //     setState(() {
+                        //       isCheckedList[index] = value ?? false;
+                        //     });
+                        //   },
+                        // ),
+                        Container(
+                          // width: width * widget.data.length/6, // 가로 공간을 적절히 나누세요
+                          padding: EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.white),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('이름: ${product.name}'),
+                              Text('무게: ${product.weight}'),
+                              Text('높이: ${product.height}'),
+                              Text('길이: ${product.length}'),
+                              Text('폭: ${product.width}'),
+                              Text('승차감: ${product.comfort}'),
+                              Text('가격: ${product.price}원'),
+                            ],
+                          ),
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('이름: ${product.name}'),
-                            Text('무게: ${product.weight}'),
-                            Text('높이: ${product.height}'),
-                            Text('길이: ${product.length}'),
-                            Text('폭: ${product.width}'),
-                            Text('승차감: ${product.comfort}'),
-                            Text('가격: ${product.price}원'),
-                          ],
-                        ),
-                      ),
-                    ],
-                  );
-                },
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ],
