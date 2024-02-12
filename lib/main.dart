@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Moby',
+      title: 'Moby1.2',
       home: HomeScreen(),
     );
   }
