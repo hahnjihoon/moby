@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moby/model/model_car.dart';
 
 class ProductScreen extends StatefulWidget {
-  List<Product> data;
+  final List<Product> data;
 
   ProductScreen({Key? key, required this.data}) : super(key: key);
 
@@ -11,24 +11,8 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
-  List<bool> isCheckedList = [];
-
-  @override
-  void initState() {
-    super.initState();
-    isCheckedList = List.filled(widget.data.length, false);
-
-    // 여기에 데이터 출력
-    print('Received data in ProductScreen: ${widget.data}');
-  }
-
   @override
   Widget build(BuildContext context) {
-    // print('Received data in ProductScreen: ${widget.data}');
-    Size screenSize = MediaQuery.of(context).size;
-    double width = screenSize.width;
-    double height = screenSize.height;
-
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -36,87 +20,76 @@ class _ProductScreenState extends State<ProductScreen> {
           backgroundColor: Colors.deepPurple,
           leading: Container(),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: Colors.deepPurple),
-                  color: Colors.deepPurple,
-                ),
-                width: width-30,
-                height: height * 0.3,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal, // 가로 스크롤을 위한 설정
-                  itemCount: widget.data.length,
-                  itemBuilder: (context, index) {
-                    Product product = widget.data[index];
-
-                    return Row(
-                      children: [
-                        // Checkbox(
-                        //   value: isCheckedList[index],
-                        //   onChanged: (bool? value) {
-                        //     setState(() {
-                        //       isCheckedList[index] = value ?? false;
-                        //     });
-                        //   },
-                        // ),
-                        Container(
-                          // width: width * widget.data.length/6, // 가로 공간을 적절히 나누세요
-                          padding: EdgeInsets.all(8.0),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.white),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('이름: ${product.name}'),
-                              Text('무게: ${product.weight}'),
-                              Text('높이: ${product.height}'),
-                              Text('길이: ${product.length}'),
-                              Text('폭: ${product.width}'),
-                              Text('승차감: ${product.comfort}'),
-                              Text('가격: ${product.price}원'),
-                            ],
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ),
+        body: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              widget.data.length,
+              (index) {
+                Product product = widget.data[index];
+                return SizedBox(
+                  width: 200, // 고정된 너비
+                  child: Card(
+                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    child: Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('ID: ${product.id}'),
+                          Text('대분류: ${product.majorClass}'),
+                          Text('중분류: ${product.middleClass}'),
+                          Text('소분류: ${product.minorClass}'),
+                          Text('제품명: ${product.productName}'),
+                          Text('브랜드: ${product.brand}'),
+                          Text('판매업체: ${product.salesCom}'),
+                          Text('가격: ${product.price}원'),
+                          Text('제조국: ${product.madeIn}'),
+                          Text('향신료: ${product.spices}'),
+                          Text('접이식 여부: ${product.folding}'),
+                          Text('재료: ${product.material}'),
+                          Text('무게: ${product.weight}'),
+                          Text('천장: ${product.ceiling}'),
+                          Text('휠: ${product.wheel}'),
+                          Text('크기: ${product.size}'),
+                          Text('바구니 크기: ${product.busketSize}'),
+                          Text('벨트: ${product.belt}'),
+                          Text('사용 제한 나이: ${product.lmtAge}'),
+                          Text('사용 제한 무게: ${product.lmtWet}'),
+                          Text('색상: ${product.color}'),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
             ),
-          ],
+          ),
         ),
-        floatingActionButton: _buildCompareButton(),
       ),
     );
   }
-
-  Widget _buildCompareButton() {
-    List<Product> selectedProducts = [];
-    for (int i = 0; i < isCheckedList.length; i++) {
-      if (isCheckedList[i]) {
-        selectedProducts.add(widget.data[i]);
-      }
-    }
-
-    return FloatingActionButton(
-      onPressed: selectedProducts.length >= 2
-          ? () {
-              // 비교 버튼 동작
-              print('선택된 제품들: $selectedProducts');
-            }
-          : null,
-      backgroundColor:
-          selectedProducts.length >= 2 ? Colors.deepPurple : Colors.grey,
-      tooltip: '비교',
-      child: Icon(Icons.compare),
-    );
-  }
 }
+
+// Text('ID: ${product.id}'),
+// Text('대분류: ${product.majorClass}'),
+// Text('중분류: ${product.middleClass}'),
+// Text('소분류: ${product.minorClass}'),
+// Text('제품명: ${product.productName}'),
+// Text('브랜드: ${product.brand}'),
+// Text('판매업체: ${product.salesCom}'),
+// Text('가격: ${product.price}원'),
+// Text('제조국: ${product.madeIn}'),
+// Text('향신료: ${product.spices}'),
+// Text('접이식 여부: ${product.folding}'),
+// Text('재료: ${product.material}'),
+// Text('무게: ${product.weight}'),
+// Text('천장: ${product.ceiling}'),
+// Text('휠: ${product.wheel}'),
+// Text('크기: ${product.size}'),
+// Text('바구니 크기: ${product.busketSize}'),
+// Text('벨트: ${product.belt}'),
+// Text('사용 제한 나이: ${product.lmtAge}'),
+// Text('사용 제한 무게: ${product.lmtWet}'),
+// Text('색상: ${product.color}'),
