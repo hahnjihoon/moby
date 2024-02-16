@@ -35,10 +35,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(top: height * 0.05), // 상단에 여백 추가
+                  padding: EdgeInsets.only(top: height * 0.1), // 상단에 여백 추가
                   child: Image.asset('images/logo.png'),
                 ),
-                SizedBox(height: height * 0.2), // 이미지 아래에 여백 추가
+                SizedBox(height: height * 0.18), // 이미지 아래에 여백 추가
                 ElevatedButton(
                   onPressed: () {
                     showDialog(
