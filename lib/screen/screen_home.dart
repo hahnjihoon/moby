@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moby/model/model_car.dart'; //이렇게임포트시키고 클래스명으로 사용가능
 import 'package:moby/screen/screen_list.dart';
+import 'package:moby/screen/screen_register.dart';
+import 'package:moby/screen/screen_login.dart';
 import 'package:moby/screen/screen_product.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,23 +43,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: height * 0.18), // 이미지 아래에 여백 추가
                 ElevatedButton(
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("알림"),
-                          content: Text("기능개발중"),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text("확인"),
-                            ),
-                          ],
-                        );
-                      },
-                    );
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (BuildContext context) {
+                    //     return AlertDialog(
+                    //       title: Text("알림"),
+                    //       content: Text("기능개발중"),
+                    //       actions: <Widget>[
+                    //         TextButton(
+                    //           onPressed: () {
+                    //             Navigator.of(context).pop();
+                    //           },
+                    //           child: Text("확인"),
+                    //         ),
+                    //       ],
+                    //     );
+                    //   },
+                    // );
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen(
+                            )));
                   },
                   style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(Size(width * 0.4, 50)), // 버튼의 가로 길이와 높이를 설정
@@ -67,23 +74,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 15),
                 ElevatedButton(
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("알림"),
-                          content: Text("기능개발중"),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text("확인"),
-                            ),
-                          ],
-                        );
-                      },
-                    );
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (BuildContext context) {
+                    //     return AlertDialog(
+                    //       title: Text("알림"),
+                    //       content: Text("기능개발중"),
+                    //       actions: <Widget>[
+                    //         TextButton(
+                    //           onPressed: () {
+                    //             Navigator.of(context).pop();
+                    //           },
+                    //           child: Text("확인"),
+                    //         ),
+                    //       ],
+                    //     );
+                    //   },
+                    // );
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RegisterScreen(
+                            )));
                   },
                   style: ButtonStyle(
                     fixedSize: MaterialStateProperty.all(Size(width * 0.4, 50)), // 버튼의 가로 길이와 높이를 설정
