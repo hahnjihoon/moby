@@ -22,7 +22,7 @@ class _ListScreenState extends State<ListScreen> {
       'productName': '폭스5',
       'brand': '부가부',
       'salesCom': '부가부',
-      'price': 10,
+      'price': 50,
       'madeIn': '네덜란드',
       'spices': '디럭스형',
       'folding': '',
@@ -52,7 +52,7 @@ class _ListScreenState extends State<ListScreen> {
       'spices': '절충형',
       'folding': '',
       'material': '',
-      'weight': '10.5kg',
+      'weight': '10kg',
       'ceiling': '',
       'wheel': '',
       'size': '53cm x 97cm x 105cm',
@@ -72,12 +72,12 @@ class _ListScreenState extends State<ListScreen> {
       'productName': '솔로',
       'brand': '리안',
       'salesCom': '에이원베이비',
-      'price': 30,
+      'price': 10,
       'madeIn': '대한민국',
       'spices': '절충형',
       'folding': '원터치',
       'material': '알루미늄',
-      'weight': '8.9kg',
+      'weight': '12.9kg',
       'ceiling': '',
       'wheel': '지름 25cm, 6.5cm 서스펜션',
       'size': '50cm x 85cm x 103cm',
@@ -102,7 +102,7 @@ class _ListScreenState extends State<ListScreen> {
       'spices': '절충형',
       'folding': '원터치',
       'material': '',
-      'weight': '9.4kg',
+      'weight': '5.2kg',
       'ceiling': '확장형(3단계), UPF50+, 생활방수',
       'wheel': '7인치(17.78cm), 네바퀴서스펜션',
       'size': '53cm x 51cm x 91cm',
@@ -122,12 +122,12 @@ class _ListScreenState extends State<ListScreen> {
       'productName': '지니제로3',
       'brand': '와이업',
       'salesCom': '와이업',
-      'price': 50,
+      'price': 55,
       'madeIn': '중국',
       'spices': '휴대용',
       'folding': '원액션폴딩',
       'material': '',
-      'weight': '6.8kg',
+      'weight': '4.8kg',
       'ceiling': '4단',
       'wheel': '',
       'size': '',
@@ -147,12 +147,12 @@ class _ListScreenState extends State<ListScreen> {
       'productName': '플렉스 탭3',
       'brand': '타보',
       'salesCom': '타보',
-      'price': 60,
+      'price': 15,
       'madeIn': '중국',
       'spices': '휴대용',
       'folding': '오토폴딩',
       'material': '',
-      'weight': '6.8kg',
+      'weight': '20.8kg',
       'ceiling': '5단',
       'wheel': '',
       'size': '',
@@ -189,6 +189,37 @@ class _ListScreenState extends State<ListScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Padding(padding: EdgeInsets.all(width * 0.024)),
+
+            SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      // 모든 상품을 선택 상태로 변경
+                      for (int i = 0; i < isCheckedList.length; i++) {
+                        isCheckedList[i] = true;
+                      }
+                    });
+                  },
+                  child: Text('전체 선택'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      // 모든 상품을 선택 해제 상태로 변경
+                      for (int i = 0; i < isCheckedList.length; i++) {
+                        isCheckedList[i] = false;
+                      }
+                    });
+                  },
+                  child: Text('전체 해제'),
+                ),
+              ],
+            ),
+            SizedBox(height: 10,),
+
             Expanded(
               child: ListView.builder(
                 itemCount: products.length,
@@ -274,7 +305,7 @@ class _ListScreenState extends State<ListScreen> {
                           checkedProducts.add(products[i]);
                         }
                       }
-                      if (checkedProducts.length > 100) {
+                      if (checkedProducts.length < 2) {
                         showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
