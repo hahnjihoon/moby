@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moby/model/model_car.dart'; //이렇게임포트시키고 클래스명으로 사용가능
 import 'package:moby/screen/screen_product.dart';
 import 'package:moby/screen/dropdown_list.dart';
+import 'package:moby/screen/screen_table.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -180,9 +181,10 @@ class _ListScreenState extends State<ListScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('moby'),
-          backgroundColor: Colors.deepPurple,
-          leading: Container(),
+          // title: Text('moby'),
+          // backgroundColor: Colors.deepPurple,
+          // leading: Container(),
+          title: Text('Moby'),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -345,36 +347,90 @@ class _ListScreenState extends State<ListScreen> {
               ),
 
             ),
-            Container(padding: EdgeInsets.only(bottom: width * 0.036),
-              child: Center(
-                child: ButtonTheme(
-                  minWidth: width * 0.8,
-                  height: height * 0.05,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                           Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => DropDownListExample(
-
-                            ),
-                          ),
-                        );
-                      },
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.deepPurple,
-                      onPrimary: Colors.white,
+            // Container(padding: EdgeInsets.only(bottom: width * 0.036),
+            //   child: Center(
+            //     child: ButtonTheme(
+            //       minWidth: width * 0.8,
+            //       height: height * 0.05,
+            //       shape: RoundedRectangleBorder(
+            //         borderRadius: BorderRadius.circular(10),
+            //       ),
+            //       child: ElevatedButton(
+            //         onPressed: () {
+            //                Navigator.push(
+            //               context,
+            //               MaterialPageRoute(
+            //                 builder: (context) => DropDownListExample(
+            //
+            //                 ),
+            //               ),
+            //             );
+            //           },
+            //         style: ElevatedButton.styleFrom(
+            //           primary: Colors.deepPurple,
+            //           onPrimary: Colors.white,
+            //         ),
+            //         child: const Text(
+            //           '예시',
+            //           style: TextStyle(color: Colors.white),
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+              Container(padding: EdgeInsets.only(bottom: width * 0.036),
+                child: Center(
+                  child: ButtonTheme(
+                    minWidth: width * 0.8,
+                    height: height * 0.05,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Text(
-                      '예시',
-                      style: TextStyle(color: Colors.white),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        List<Product> checkedProducts = [];
+                        for (int i = 0; i < isCheckedList.length; i++) {
+                          if (isCheckedList[i]) {
+                            checkedProducts.add(products[i]);
+                          }
+                        }
+                        if (checkedProducts.length < 2) {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('알림'),
+                              content: const Text('2개 이상 선택하시오'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('확인'),
+                                ),
+                              ],
+                            ),
+                          );
+                        } else {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => TableScreen(
+                                data: checkedProducts,
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.deepPurple,
+                        onPrimary: Colors.white,
+                      ),
+                      child: const Text(
+                        '테이블로비교',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
-              ),
 
             )
           ],

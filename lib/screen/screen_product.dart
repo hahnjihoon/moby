@@ -26,7 +26,7 @@ class _ProductScreenState extends State<ProductScreen> {
         appBar: AppBar(
           title: const Text('moby'),
           backgroundColor: Colors.deepPurple,
-          leading: Container(),
+          // leading: Container(),
         ),
         body: Column(
           children: [
