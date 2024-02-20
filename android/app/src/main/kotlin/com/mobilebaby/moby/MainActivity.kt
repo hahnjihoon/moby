@@ -1,4 +1,4 @@
-package com.example.moby
+package com.mobilebaby.moby
 
 import io.flutter.embedding.android.FlutterActivity
 
