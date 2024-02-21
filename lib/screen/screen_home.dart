@@ -3,6 +3,7 @@ import 'package:moby/model/model_car.dart'; //이렇게임포트시키고 클래
 import 'package:moby/screen/screen_list.dart';
 import 'package:moby/screen/screen_register.dart';
 import 'package:moby/screen/screen_login.dart';
+import 'package:moby/screen/screen_verho.dart';
 import 'package:moby/screen/screen_product.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -116,7 +117,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     fixedSize: MaterialStateProperty.all(Size(width * 0.4, 50)), // 버튼의 가로 길이와 높이를 설정
                   ),
                   child: Text('게스트입장'),
+
                 ),
+                SizedBox(height: 15),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VerhoScreen(
+                            )));
+
+                  },
+                  style: ButtonStyle(
+                    fixedSize: MaterialStateProperty.all(Size(width * 0.4, 50)), // 버튼의 가로 길이와 높이를 설정
+                  ),
+                  child: Text('수직수평'),
+
+                ),
+
               ],
             ),
           ),
