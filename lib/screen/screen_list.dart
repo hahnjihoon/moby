@@ -3,6 +3,7 @@ import 'package:moby/model/model_car.dart'; //이렇게임포트시키고 클래
 import 'package:moby/screen/screen_product.dart';
 import 'package:moby/screen/dropdown_list.dart';
 import 'package:moby/screen/screen_table.dart';
+import 'package:moby/screen/web_view_test.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -18,7 +19,8 @@ class _ListScreenState extends State<ListScreen> {
       'majorClass': '출산/유아동',
       'middleClass': '유모차/웨건',
       'minorClass': '유모차',
-      'imageUrl': 'https://shopping-phinf.pstatic.net/main_3931792/39317924618.20230411161640.jpg?type=f640',
+      'imageUrl':
+          'https://shopping-phinf.pstatic.net/main_3931792/39317924618.20230411161640.jpg?type=f640',
       'pageUrl': 'https://brand.naver.com/bugabookorea/products/8040740850',
       'productName': '폭스5',
       'brand': '부가부',
@@ -43,7 +45,8 @@ class _ListScreenState extends State<ListScreen> {
       'majorClass': '출산/유아동',
       'middleClass': '유모차/웨건',
       'minorClass': '유모차',
-      'imageUrl': 'https://shopping-phinf.pstatic.net/main_3107925/31079250618.20220225171654.jpg?type=f640',
+      'imageUrl':
+          'https://shopping-phinf.pstatic.net/main_3107925/31079250618.20220225171654.jpg?type=f640',
       'pageUrl': 'https://smartstore.naver.com/enfix/products/5621952254',
       'productName': '허브플러스',
       'brand': '줄즈',
@@ -68,7 +71,8 @@ class _ListScreenState extends State<ListScreen> {
       'majorClass': '출산/유아동',
       'middleClass': '유모차/웨건',
       'minorClass': '유모차',
-      'imageUrl': 'https://shopping-phinf.pstatic.net/main_3928826/39288266618.20230410164010.jpg?type=f640',
+      'imageUrl':
+          'https://shopping-phinf.pstatic.net/main_3928826/39288266618.20230410164010.jpg?type=f640',
       'pageUrl': 'https://aonebaby.co.kr/product/detail.html?product_no=1582',
       'productName': '솔로',
       'brand': '리안',
@@ -93,7 +97,8 @@ class _ListScreenState extends State<ListScreen> {
       'majorClass': '출산/유아동',
       'middleClass': '유모차/웨건',
       'minorClass': '유모차',
-      'imageUrl': 'https://shopping-phinf.pstatic.net/main_2632218/26322182522.20210722153930.jpg?type=f640',
+      'imageUrl':
+          'https://shopping-phinf.pstatic.net/main_2632218/26322182522.20210722153930.jpg?type=f640',
       'pageUrl': 'https://brand.naver.com/bugabookorea/products/5914466695',
       'productName': '비6',
       'brand': '부가부',
@@ -118,7 +123,8 @@ class _ListScreenState extends State<ListScreen> {
       'majorClass': '출산/유아동',
       'middleClass': '유모차/웨건',
       'minorClass': '초경량/휴대용유모차',
-      'imageUrl': 'https://shopping-phinf.pstatic.net/main_3867510/38675102619.20230404150756.jpg',
+      'imageUrl':
+          'https://shopping-phinf.pstatic.net/main_3867510/38675102619.20230404150756.jpg',
       'pageUrl': 'https://brand.naver.com/yupbaby/products/7938842785',
       'productName': '지니제로3',
       'brand': '와이업',
@@ -143,7 +149,8 @@ class _ListScreenState extends State<ListScreen> {
       'majorClass': '출산/유아동',
       'middleClass': '유모차/웨건',
       'minorClass': '초경량/휴대용유모차',
-      'imageUrl': 'https://shopping-phinf.pstatic.net/main_4434657/44346576618.20231213105043.jpg?type=f640',
+      'imageUrl':
+          'https://shopping-phinf.pstatic.net/main_4434657/44346576618.20231213105043.jpg?type=f640',
       'pageUrl': 'https://brand.naver.com/tavo/products/9600875213',
       'productName': '플렉스 탭3',
       'brand': '타보',
@@ -193,7 +200,10 @@ class _ListScreenState extends State<ListScreen> {
           children: <Widget>[
             Padding(padding: EdgeInsets.all(width * 0.024)),
 
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -222,90 +232,97 @@ class _ListScreenState extends State<ListScreen> {
               ],
             ),
 
-            SizedBox(height: 10,),
-            Expanded( //위row쓰고 나머지 꽉채우고싶을때 쓴다
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              //위row쓰고 나머지 꽉채우고싶을때 쓴다
               child: ListView.builder(
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
                   Product product = products[index];
                   bool isChecked = isCheckedList[index];
 
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Checkbox(
-
-                        value: isChecked,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            isCheckedList[index] = value ?? false;
-                          });
-                        },
-                      ),
-                      SizedBox(width: 10), // 체크박스와 이미지 간격 조정
-                      // Image.asset(
-                      //   'images/car${index + 1}.png',
-                      //   width: width * 0.2,
-                      // ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2), // 검정 테두리 설정
-                          borderRadius: BorderRadius.circular(10), // 테두리를 둥글게 만들기 위한 설정
+                  return Column(children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Checkbox(
+                          value: isChecked,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              isCheckedList[index] = value ?? false;
+                            });
+                          },
                         ),
-                        child: Image.network(
-                          product.imageUrl,
-                          width: width * 0.4,
-                        ),
-                      ),
-                      SizedBox(width: 10), // 이미지와 컨텐츠 간격 조정
-                      Expanded(
-                        // padding: EdgeInsets.all(8.0),
-                        // decoration: BoxDecoration(
-                        //   border: Border.all(color: Colors.grey),
-                        //   borderRadius: BorderRadius.circular(10),
+                        SizedBox(width: 10), // 체크박스와 이미지 간격 조정
+                        // Image.asset(
+                        //   'images/car${index + 1}.png',
+                        //   width: width * 0.2,
                         // ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Text('ID: ${product.id}'),
-                            // Text('대분류: ${product.majorClass}'),
-                            // Text('중분류: ${product.middleClass}'),
-                            Text('소분류: ${product.minorClass}'),
-                            // Text('이미지 URL: ${product.imageUrl}'),
-                            // Text('페이지 URL: ${product.pageUrl}'),
-                            Text('제품명: ${product.productName}'),
-                            Text('브랜드: ${product.brand}'),
-                            Text('판매업체: ${product.salesCom}'),
-                            Text('가격: ${product.price}원'),
-                            Text('제조국: ${product.madeIn}'),
-                            // Text('향신료: ${product.spices}'),
-                            // Text('접이식 여부: ${product.folding}'),
-                            // Text('재료: ${product.material}'),
-                            // Text('무게: ${product.weight}'),
-                            // Text('천장: ${product.ceiling}'),
-                            // Text('휠: ${product.wheel}'),
-                            // Text('크기: ${product.size}'),
-                            // Text('바구니 크기: ${product.busketSize}'),
-                            // Text('벨트: ${product.belt}'),
-                            // Text('사용 제한 나이: ${product.lmtAge}'),
-                            // Text('사용 제한 무게: ${product.lmtWet}'),
-                            Text('색상: ${product.color}'),
-                          ],
+                        Container(
+                          padding:
+                              EdgeInsets.all(10), // 모든 측면에 대해 10의 패딩을 설정합니다.
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.black, width: 2), // 검정 테두리 설정
+                            borderRadius:
+                                BorderRadius.circular(10), // 테두리를 둥글게 만들기 위한 설정
+                          ),
+                          child: Image.network(
+                            product.imageUrl,
+                            width: width * 0.4,
+                          ),
                         ),
-                      ),
-
-                    ],
-
-                  );
+                        SizedBox(width: 10), // 이미지와 컨텐츠 간격 조정
+                        Expanded(
+                          // padding: EdgeInsets.all(8.0),
+                          // decoration: BoxDecoration(
+                          //   border: Border.all(color: Colors.grey),
+                          //   borderRadius: BorderRadius.circular(10),
+                          // ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Text('ID: ${product.id}'),
+                              // Text('대분류: ${product.majorClass}'),
+                              // Text('중분류: ${product.middleClass}'),
+                              Text('소분류: ${product.minorClass}'),
+                              // Text('이미지 URL: ${product.imageUrl}'),
+                              // Text('페이지 URL: ${product.pageUrl}'),
+                              Text('제품명: ${product.productName}'),
+                              Text('브랜드: ${product.brand}'),
+                              Text('판매업체: ${product.salesCom}'),
+                              Text('가격: ${product.price}원'),
+                              Text('제조국: ${product.madeIn}'),
+                              // Text('향신료: ${product.spices}'),
+                              // Text('접이식 여부: ${product.folding}'),
+                              // Text('재료: ${product.material}'),
+                              // Text('무게: ${product.weight}'),
+                              // Text('천장: ${product.ceiling}'),
+                              // Text('휠: ${product.wheel}'),
+                              // Text('크기: ${product.size}'),
+                              // Text('바구니 크기: ${product.busketSize}'),
+                              // Text('벨트: ${product.belt}'),
+                              // Text('사용 제한 나이: ${product.lmtAge}'),
+                              // Text('사용 제한 무게: ${product.lmtWet}'),
+                              Text('색상: ${product.color}'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                  ]);
                 },
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: width * 0.036),
+              padding:
+                  EdgeInsets.only(top: width * 0.036, bottom: width * 0.036),
               child: Center(
                 child: ButtonTheme(
-                  padding: EdgeInsets.only(bottom: width * 0.036),
                   minWidth: width * 0.8,
                   height: height * 0.05,
                   shape: RoundedRectangleBorder(
@@ -357,7 +374,6 @@ class _ListScreenState extends State<ListScreen> {
                   ),
                 ),
               ),
-
             ),
             // Container(padding: EdgeInsets.only(bottom: width * 0.036),
             //   child: Center(
@@ -389,61 +405,58 @@ class _ListScreenState extends State<ListScreen> {
             //       ),
             //     ),
             //   ),
-              Container(padding: EdgeInsets.only(bottom: width * 0.036),
-                child: Center(
-                  child: ButtonTheme(
-                    minWidth: width * 0.8,
-                    height: height * 0.05,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        List<Product> checkedProducts = [];
-                        for (int i = 0; i < isCheckedList.length; i++) {
-                          if (isCheckedList[i]) {
-                            checkedProducts.add(products[i]);
-                          }
+            Container(
+              padding: EdgeInsets.only(bottom: width * 0.036),
+              child: Center(
+                child: ButtonTheme(
+                  minWidth: width * 0.8,
+                  height: height * 0.05,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      List<Product> checkedProducts = [];
+                      for (int i = 0; i < isCheckedList.length; i++) {
+                        if (isCheckedList[i]) {
+                          checkedProducts.add(products[i]);
                         }
-                        if (checkedProducts.length < 2) {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: const Text('알림'),
-                              content: const Text('2개 이상 선택하시오'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text('확인'),
-                                ),
-                              ],
-                            ),
-                          );
-                        } else {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => TableScreen(
-                                data: checkedProducts,
+                      }
+                      if (checkedProducts.length < 2) {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: const Text('알림'),
+                            content: const Text('2개 이상 선택하시오'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text('확인'),
                               ),
-                            ),
-                          );
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.deepPurple,
-                        onPrimary: Colors.white,
-                      ),
-                      child: const Text(
-                        '테이블로비교',
-                        style: TextStyle(color: Colors.white),
-                      ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        Navigator.of(context).push(
+
+
+
+                            MaterialPageRoute(builder: (context) => const MyWebView()));
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.deepPurple,
+                      onPrimary: Colors.white,
+                    ),
+                    child: const Text(
+                      '테이블로비교',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
-
+              ),
             )
           ],
         ),
