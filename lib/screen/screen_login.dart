@@ -8,25 +8,14 @@ import 'package:flutter/material.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 
 // 로그인 페이지
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginPage(),
-    );
-  }
+  State<LoginScreen> createState() => _LoginState();
 }
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
-  @override
-  State<LoginPage> createState() => _LoginState();
-}
-
-class _LoginState extends State<LoginPage> {
+class _LoginState extends State<LoginScreen> {
   // 자동 로그인 여부
   bool switchValue = false;
 
@@ -36,8 +25,13 @@ class _LoginState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('moby'),
+          backgroundColor: Colors.deepPurple,
+          // leading: Container(),
+        ),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),

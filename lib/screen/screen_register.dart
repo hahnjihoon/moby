@@ -16,12 +16,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController userIdController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordVerifyingController =
-  TextEditingController();
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('moby'),
+          backgroundColor: Colors.deepPurple,
+          // leading: Container(),
+        ),
         body: Center(
           // 아이디 입력 텍스트필드
           child: Padding(

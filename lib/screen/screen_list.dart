@@ -184,7 +184,8 @@ class _ListScreenState extends State<ListScreen> {
           // title: Text('moby'),
           // backgroundColor: Colors.deepPurple,
           // leading: Container(),
-          title: Text('Moby'),
+          title: Text('moby_product_list'),
+          backgroundColor: Colors.deepPurple,
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -220,9 +221,9 @@ class _ListScreenState extends State<ListScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 10,),
 
-            Expanded(
+            SizedBox(height: 10,),
+            Expanded( //위row쓰고 나머지 꽉채우고싶을때 쓴다
               child: ListView.builder(
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
