@@ -111,7 +111,7 @@ class _ListScreenState extends State<ListScreen> {
       'belt': '',
       'lmtAge': '36개월',
       'lmtWet': '22kg',
-      'color': '레몬옐로우, 개같은거한개만써',
+      'color': '레몬옐로우, 껌정색',
     }),
     Product.fromMap({
       'id': 5,
@@ -184,7 +184,7 @@ class _ListScreenState extends State<ListScreen> {
           // title: Text('moby'),
           // backgroundColor: Colors.deepPurple,
           // leading: Container(),
-          title: Text('moby_product_list'),
+          title: Text('moby_dbahck_list'),
           backgroundColor: Colors.deepPurple,
         ),
         body: Column(
@@ -231,9 +231,11 @@ class _ListScreenState extends State<ListScreen> {
                   bool isChecked = isCheckedList[index];
 
                   return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Checkbox(
+
                         value: isChecked,
                         onChanged: (bool? value) {
                           setState(() {
@@ -246,23 +248,29 @@ class _ListScreenState extends State<ListScreen> {
                       //   'images/car${index + 1}.png',
                       //   width: width * 0.2,
                       // ),
-                      Image.network(
-                        product.imageUrl,
-                        width: width * 0.5,
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.black, width: 2), // 검정 테두리 설정
+                          borderRadius: BorderRadius.circular(10), // 테두리를 둥글게 만들기 위한 설정
+                        ),
+                        child: Image.network(
+                          product.imageUrl,
+                          width: width * 0.4,
+                        ),
                       ),
                       SizedBox(width: 10), // 이미지와 컨텐츠 간격 조정
-                      Container(
-                        padding: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                      Expanded(
+                        // padding: EdgeInsets.all(8.0),
+                        // decoration: BoxDecoration(
+                        //   border: Border.all(color: Colors.grey),
+                        //   borderRadius: BorderRadius.circular(10),
+                        // ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('ID: ${product.id}'),
-                            Text('대분류: ${product.majorClass}'),
-                            Text('중분류: ${product.middleClass}'),
+                            // Text('ID: ${product.id}'),
+                            // Text('대분류: ${product.majorClass}'),
+                            // Text('중분류: ${product.middleClass}'),
                             Text('소분류: ${product.minorClass}'),
                             // Text('이미지 URL: ${product.imageUrl}'),
                             // Text('페이지 URL: ${product.pageUrl}'),
@@ -271,22 +279,24 @@ class _ListScreenState extends State<ListScreen> {
                             Text('판매업체: ${product.salesCom}'),
                             Text('가격: ${product.price}원'),
                             Text('제조국: ${product.madeIn}'),
-                            Text('향신료: ${product.spices}'),
-                            Text('접이식 여부: ${product.folding}'),
-                            Text('재료: ${product.material}'),
-                            Text('무게: ${product.weight}'),
-                            Text('천장: ${product.ceiling}'),
-                            Text('휠: ${product.wheel}'),
-                            Text('크기: ${product.size}'),
-                            Text('바구니 크기: ${product.busketSize}'),
-                            Text('벨트: ${product.belt}'),
-                            Text('사용 제한 나이: ${product.lmtAge}'),
-                            Text('사용 제한 무게: ${product.lmtWet}'),
+                            // Text('향신료: ${product.spices}'),
+                            // Text('접이식 여부: ${product.folding}'),
+                            // Text('재료: ${product.material}'),
+                            // Text('무게: ${product.weight}'),
+                            // Text('천장: ${product.ceiling}'),
+                            // Text('휠: ${product.wheel}'),
+                            // Text('크기: ${product.size}'),
+                            // Text('바구니 크기: ${product.busketSize}'),
+                            // Text('벨트: ${product.belt}'),
+                            // Text('사용 제한 나이: ${product.lmtAge}'),
+                            // Text('사용 제한 무게: ${product.lmtWet}'),
                             Text('색상: ${product.color}'),
                           ],
                         ),
                       ),
+
                     ],
+
                   );
                 },
               ),
@@ -295,6 +305,7 @@ class _ListScreenState extends State<ListScreen> {
               padding: EdgeInsets.only(bottom: width * 0.036),
               child: Center(
                 child: ButtonTheme(
+                  padding: EdgeInsets.only(bottom: width * 0.036),
                   minWidth: width * 0.8,
                   height: height * 0.05,
                   shape: RoundedRectangleBorder(

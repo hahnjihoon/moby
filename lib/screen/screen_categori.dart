@@ -53,6 +53,12 @@ class _CategoriScreenState extends State<CategoriScreen> {
     return ElevatedButton(
       onPressed: () {
         // 버튼이 눌렸을 때 수행할 작업
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => getPageWidget(gopage[index]),
+          ),
+        );
       },
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.zero, // 내부 패딩 제거
@@ -88,4 +94,28 @@ class _CategoriScreenState extends State<CategoriScreen> {
       ),
     );
   }
+
+
+  Widget getPageWidget(String pageName) {
+    // 페이지 이름에 따라 해당하는 위젯을 반환합니다.
+    switch (pageName) {
+      case 'ListScreen':
+        return ListScreen();
+      // case 'Screen2':
+      //   return Screen2();
+      // case 'Screen3':
+      //   return Screen3();
+      // case 'Screen4':
+      //   return Screen4();
+      // case 'Screen5':
+      //   return Screen5();
+      // case 'Screen6':
+      //   return Screen6();
+      default:
+      // 기본적으로는 ListScreen을 반환합니다.
+        return ListScreen();
+    }
+  }
+
 }
+
