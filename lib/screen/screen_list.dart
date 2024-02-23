@@ -4,6 +4,7 @@ import 'package:moby/screen/screen_product.dart';
 import 'package:moby/screen/dropdown_list.dart';
 import 'package:moby/screen/screen_table.dart';
 import 'package:moby/screen/web_view_test.dart';
+import 'package:moby/screen/screen_html.dart';
 
 class ListScreen extends StatefulWidget {
   const ListScreen({super.key});
@@ -198,7 +199,7 @@ class _ListScreenState extends State<ListScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Padding(padding: EdgeInsets.all(width * 0.024)),
+
 
             SizedBox(
               height: 10,
@@ -443,7 +444,7 @@ class _ListScreenState extends State<ListScreen> {
 
 
 
-                            MaterialPageRoute(builder: (context) => const MyWebView()));
+                            MaterialPageRoute(builder: (context) => HtmlScreen(data: checkedProducts,)));
                       }
                     },
                     style: ElevatedButton.styleFrom(

@@ -24,7 +24,7 @@ class _ProductScreenState extends State<ProductScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('moby'),
+          title: const Text('moby_dbahck_compare'),
           backgroundColor: Colors.deepPurple,
           // leading: Container(),
         ),

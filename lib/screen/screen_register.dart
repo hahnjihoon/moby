@@ -104,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 builder: (BuildContext context) {
                                   return AlertDialog(
                                     title: Text('알림'),
-                                    content: Text('디비가없어서생성못해 시발'),
+                                    content: Text('기능개발중'),
                                     actions: [
                                       TextButton(
                                         child: Text('닫기'),
