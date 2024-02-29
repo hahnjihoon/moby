@@ -1,175 +1,90 @@
 import 'package:flutter/material.dart';
-import 'package:moby/model/model_car.dart'; //이렇게임포트시키고 클래스명으로 사용가능
-import 'package:moby/screen/screen_product.dart';
-import 'package:moby/screen/dropdown_list.dart';
-import 'package:moby/screen/screen_table.dart';
-import 'package:moby/screen/web_view_test.dart';
-import 'package:moby/screen/screen_html.dart';
+import 'package:moby/html/screen_html_wjwqud.dart';
+import 'package:moby/model/model_dbahck.dart'; //이렇게임포트시키고 클래스명으로 사용가능
+import 'package:moby/model/model_wjwqud.dart';
+import 'package:moby/product/screen_select_wjwqud.dart';
+import 'package:moby/html/screen_html_dbahck.dart';
 
-class ListScreen extends StatefulWidget {
-  const ListScreen({super.key});
+class WjwqudScreen extends StatefulWidget {
+  const WjwqudScreen({super.key});
 
   @override
-  _ListScreenState createState() => _ListScreenState();
+  _WjwqudScreenState createState() => _WjwqudScreenState();
 }
 
-class _ListScreenState extends State<ListScreen> {
-  List<Product> products = [
-    Product.fromMap({
+class _WjwqudScreenState extends State<WjwqudScreen> {
+  List<Wjwqud> products = [
+    Wjwqud.fromMap({
       'id': 1,
       'majorClass': '출산/유아동',
-      'middleClass': '유모차/웨건',
-      'minorClass': '유모차',
+      'middleClass': '젖병',
+      'minorClass': '젖병',
       'imageUrl':
-          'https://shopping-phinf.pstatic.net/main_3931792/39317924618.20230411161640.jpg?type=f640',
-      'pageUrl': 'https://brand.naver.com/bugabookorea/products/8040740850',
-      'productName': '폭스5',
+      'https://shopping-phinf.pstatic.net/main_8374974/83749749128.16.jpg?type=f300',
+      'pageUrl': 'https://smartstore.naver.com/babysong/products/6205249551',
+      'productName': '젖병1',
       'brand': '부가부',
       'salesCom': '부가부',
-      'price': 50,
+      'price': 100,
       'madeIn': '네덜란드',
-      'spices': '디럭스형',
-      'folding': '',
-      'material': '바이오 플라스틱',
-      'weight': '',
-      'ceiling': '',
-      'wheel': '',
-      'size': '80cm x 93cm x 105cm',
-      'busketSize': '39L',
-      'belt': '5점식',
-      'lmtAge': '',
-      'lmtWet': '',
-      'color': '',
+      'material': '플라스틱',
+      'weight': '1kg',
+      'size': '10cm',
+      'color': '-',
     }),
-    Product.fromMap({
+    Wjwqud.fromMap({
       'id': 2,
       'majorClass': '출산/유아동',
-      'middleClass': '유모차/웨건',
-      'minorClass': '유모차',
+      'middleClass': '젖병',
+      'minorClass': '젖병',
       'imageUrl':
-          'https://shopping-phinf.pstatic.net/main_3107925/31079250618.20220225171654.jpg?type=f640',
-      'pageUrl': 'https://smartstore.naver.com/enfix/products/5621952254',
-      'productName': '허브플러스',
+      'https://shopping-phinf.pstatic.net/main_8371870/83718702799.2.jpg?type=f300',
+      'pageUrl': 'https://smartstore.naver.com/lansinoh/products/6174203222',
+      'productName': '플러스2',
       'brand': '줄즈',
       'salesCom': '엔픽스',
-      'price': 20,
+      'price': 90,
       'madeIn': '네덜란드',
-      'spices': '절충형',
-      'folding': '',
-      'material': '',
-      'weight': '10kg',
-      'ceiling': '',
-      'wheel': '',
-      'size': '53cm x 97cm x 105cm',
-      'busketSize': '',
-      'belt': '',
-      'lmtAge': '4세',
-      'lmtWet': '22kg',
-      'color': '',
+      'material': '쁘라스틱',
+      'weight': '4kg',
+      'size': '25cm',
+      'color': '-',
     }),
-    Product.fromMap({
+    Wjwqud.fromMap({
       'id': 3,
       'majorClass': '출산/유아동',
-      'middleClass': '유모차/웨건',
-      'minorClass': '유모차',
+      'middleClass': '젖병',
+      'minorClass': '젖병',
       'imageUrl':
-          'https://shopping-phinf.pstatic.net/main_3928826/39288266618.20230410164010.jpg?type=f640',
-      'pageUrl': 'https://aonebaby.co.kr/product/detail.html?product_no=1582',
+      'https://shopping-phinf.pstatic.net/main_8579348/85793480484.jpg?type=f300',
+      'pageUrl': 'https://brand.naver.com/doubleheart/products/8248980161',
       'productName': '솔로',
       'brand': '리안',
       'salesCom': '에이원베이비',
-      'price': 10,
+      'price': 110,
       'madeIn': '대한민국',
-      'spices': '절충형',
-      'folding': '원터치',
       'material': '알루미늄',
-      'weight': '12kg',
-      'ceiling': '',
-      'wheel': '지름 25cm, 6.5cm 서스펜션',
-      'size': '50cm x 85cm x 103cm',
-      'busketSize': '',
-      'belt': '',
-      'lmtAge': '3세',
-      'lmtWet': '15kg',
-      'color': '내추럴베이지, 모던그레이, 프렌치네이비',
+      'weight': '2.3kg',
+      'size': '13cm',
+      'color': '내추럴베이지',
     }),
-    Product.fromMap({
+    Wjwqud.fromMap({
       'id': 4,
       'majorClass': '출산/유아동',
-      'middleClass': '유모차/웨건',
-      'minorClass': '유모차',
+      'middleClass': '젖병',
+      'minorClass': '젖병',
       'imageUrl':
-          'https://shopping-phinf.pstatic.net/main_2632218/26322182522.20210722153930.jpg?type=f640',
-      'pageUrl': 'https://brand.naver.com/bugabookorea/products/5914466695',
-      'productName': '비6',
+      'https://shopping-phinf.pstatic.net/main_8302316/83023162316.7.jpg?type=f300',
+      'pageUrl': 'https://smartstore.naver.com/joyfulnow/products/5478667557',
+      'productName': '비66',
       'brand': '부가부',
       'salesCom': '부가부',
       'price': 40,
       'madeIn': '네덜란드',
-      'spices': '절충형',
-      'folding': '원터치',
-      'material': '',
+      'material': '-',
       'weight': '5kg',
-      'ceiling': '확장형(3단계), UPF50+, 생활방수',
-      'wheel': '7인치(17.78cm), 네바퀴서스펜션',
-      'size': '53cm x 51cm x 91cm',
-      'busketSize': '22L',
-      'belt': '',
-      'lmtAge': '36개월',
-      'lmtWet': '22kg',
-      'color': '레몬옐로우, 껌정색',
-    }),
-    Product.fromMap({
-      'id': 5,
-      'majorClass': '출산/유아동',
-      'middleClass': '유모차/웨건',
-      'minorClass': '초경량/휴대용유모차',
-      'imageUrl':
-          'https://shopping-phinf.pstatic.net/main_3867510/38675102619.20230404150756.jpg',
-      'pageUrl': 'https://brand.naver.com/yupbaby/products/7938842785',
-      'productName': '지니제로3',
-      'brand': '와이업',
-      'salesCom': '와이업',
-      'price': 55,
-      'madeIn': '중국',
-      'spices': '휴대용',
-      'folding': '원액션폴딩',
-      'material': '',
-      'weight': '4.8kg',
-      'ceiling': '4단',
-      'wheel': '',
-      'size': '',
-      'busketSize': '30L',
-      'belt': '5점식',
-      'lmtAge': '',
-      'lmtWet': '',
-      'color': '',
-    }),
-    Product.fromMap({
-      'id': 6,
-      'majorClass': '출산/유아동',
-      'middleClass': '유모차/웨건',
-      'minorClass': '초경량/휴대용유모차',
-      'imageUrl':
-          'https://shopping-phinf.pstatic.net/main_4434657/44346576618.20231213105043.jpg?type=f640',
-      'pageUrl': 'https://brand.naver.com/tavo/products/9600875213',
-      'productName': '플렉스 탭3',
-      'brand': '타보',
-      'salesCom': '타보',
-      'price': 15,
-      'madeIn': '중국',
-      'spices': '휴대용',
-      'folding': '오토폴딩',
-      'material': '',
-      'weight': '20.8kg',
-      'ceiling': '5단',
-      'wheel': '',
-      'size': '',
-      'busketSize': '',
-      'belt': '5점식',
-      'lmtAge': '',
-      'lmtWet': '22kg',
-      'color': '',
+      'size': '53cm',
+      'color': '껌정색',
     }),
   ];
 
@@ -192,7 +107,7 @@ class _ListScreenState extends State<ListScreen> {
           // title: Text('moby'),
           // backgroundColor: Colors.deepPurple,
           // leading: Container(),
-          title: Text('moby_dbahck_list'),
+          title: Text('moby_wjwqud_list'),
           backgroundColor: Colors.deepPurple,
         ),
         body: Column(
@@ -241,7 +156,7 @@ class _ListScreenState extends State<ListScreen> {
               child: ListView.builder(
                 itemCount: products.length,
                 itemBuilder: (BuildContext context, int index) {
-                  Product product = products[index];
+                  Wjwqud product = products[index];
                   bool isChecked = isCheckedList[index];
 
                   return Column(children: [
@@ -264,12 +179,12 @@ class _ListScreenState extends State<ListScreen> {
                         // ),
                         Container(
                           padding:
-                              EdgeInsets.all(10), // 모든 측면에 대해 10의 패딩을 설정합니다.
+                          EdgeInsets.all(10), // 모든 측면에 대해 10의 패딩을 설정합니다.
                           decoration: BoxDecoration(
                             border: Border.all(
                                 color: Colors.black, width: 2), // 검정 테두리 설정
                             borderRadius:
-                                BorderRadius.circular(10), // 테두리를 둥글게 만들기 위한 설정
+                            BorderRadius.circular(10), // 테두리를 둥글게 만들기 위한 설정
                           ),
                           child: Image.network(
                             product.imageUrl,
@@ -321,7 +236,7 @@ class _ListScreenState extends State<ListScreen> {
             ),
             Container(
               padding:
-                  EdgeInsets.only(top: width * 0.036, bottom: width * 0.036),
+              EdgeInsets.only(top: width * 0.036, bottom: width * 0.036),
               child: Center(
                 child: ButtonTheme(
                   minWidth: width * 0.8,
@@ -331,7 +246,7 @@ class _ListScreenState extends State<ListScreen> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      List<Product> checkedProducts = [];
+                      List<Wjwqud> checkedProducts = [];
                       for (int i = 0; i < isCheckedList.length; i++) {
                         if (isCheckedList[i]) {
                           checkedProducts.add(products[i]);
@@ -357,7 +272,7 @@ class _ListScreenState extends State<ListScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ProductScreen(
+                            builder: (context) => SelectWjwqudScreen(
                               data: checkedProducts,
                             ),
                           ),
@@ -369,7 +284,7 @@ class _ListScreenState extends State<ListScreen> {
                       onPrimary: Colors.white,
                     ),
                     child: const Text(
-                      '비교',
+                      '월드컵비교',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -417,7 +332,7 @@ class _ListScreenState extends State<ListScreen> {
                   ),
                   child: ElevatedButton(
                     onPressed: () {
-                      List<Product> checkedProducts = [];
+                      List<Wjwqud> checkedProducts = [];
                       for (int i = 0; i < isCheckedList.length; i++) {
                         if (isCheckedList[i]) {
                           checkedProducts.add(products[i]);
@@ -444,7 +359,7 @@ class _ListScreenState extends State<ListScreen> {
 
 
 
-                            MaterialPageRoute(builder: (context) => HtmlScreen(data: checkedProducts,)));
+                            MaterialPageRoute(builder: (context) => HtmlWjwqudScreen(data: checkedProducts,)));
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -452,7 +367,7 @@ class _ListScreenState extends State<ListScreen> {
                       onPrimary: Colors.white,
                     ),
                     child: const Text(
-                      '테이블로비교',
+                      '테이블비교',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

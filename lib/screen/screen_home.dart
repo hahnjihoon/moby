@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:moby/model/model_car.dart'; //이렇게임포트시키고 클래스명으로 사용가능
-import 'package:moby/screen/screen_list.dart';
+import 'package:moby/model/model_dbahck.dart'; //이렇게임포트시키고 클래스명으로 사용가능
+import 'package:moby/categori/screen_dbahck.dart';
 import 'package:moby/screen/screen_register.dart';
 import 'package:moby/screen/screen_login.dart';
 import 'package:moby/screen/screen_categori.dart';
-import 'package:moby/screen/screen_verho.dart';
-import 'package:moby/screen/screen_product.dart';
+import 'package:moby/zone/screen_verho.dart';
+import 'package:moby/product/screen_select_dbahck.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:moby/model/model_car.dart';
+import 'package:moby/model/model_dbahck.dart';
 
 class ProductColumn extends StatelessWidget {
-  final List<Product> data;
+  final List<Dbahck> data;
   const ProductColumn({Key? key, required this.data}) : super(key: key);
 
   @override
@@ -62,7 +62,7 @@ class ProductColumn extends StatelessWidget {
     );
   }
 
-  Widget _getColumnValue(Product product, String columnTitle) {
+  Widget _getColumnValue(Dbahck product, String columnTitle) {
     switch (columnTitle) {
       case 'id':
         return Text(product.id.toString());
@@ -119,7 +119,7 @@ class ProductColumn extends StatelessWidget {
 }
 
 class TableScreen extends StatelessWidget {
-  final List<Product> data;
+  final List<Dbahck> data;
   const TableScreen({Key? key, required this.data}) : super(key: key);
 
   @override

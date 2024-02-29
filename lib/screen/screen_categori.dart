@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moby/screen/screen_list.dart';
+import 'package:moby/categori/screen_dbahck.dart';
+import 'package:moby/categori/screen_wjwqud.dart';
+import 'package:moby/categori/screen_zktlxm.dart';
 
 class CategoriScreen extends StatefulWidget {
   const CategoriScreen({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class CategoriScreen extends StatefulWidget {
 class _CategoriScreenState extends State<CategoriScreen> {
   List<String> products = ['유모차', '젖병', '카시트', '침구류', '기저귀', '이유식'];
   List<String> imageloca = ['images/1111.png', 'images/wjwqud.png', 'images/zktlxm.png', 'images/clarn.jpg', 'images/rlwjrl.jpg', 'images/dldb.jpg'];
-  List<String> gopage = ['ListScreen', '','', '','', ''];
+  List<String> gopage = ['DbahckScreen', 'WjwqudScreen','ZktlxmScreen', '','', ''];
 
   @override
   Widget build(BuildContext context) {
@@ -99,12 +101,12 @@ class _CategoriScreenState extends State<CategoriScreen> {
   Widget getPageWidget(String pageName) {
     // 페이지 이름에 따라 해당하는 위젯을 반환합니다.
     switch (pageName) {
-      case 'ListScreen':
-        return ListScreen();
-      // case 'Screen2':
-      //   return Screen2();
-      // case 'Screen3':
-      //   return Screen3();
+      case 'DbahckScreen':
+        return DbahckScreen();
+      case 'WjwqudScreen':
+        return WjwqudScreen();
+      case 'ZktlxmScreen':
+        return ZktlxmScreen();
       // case 'Screen4':
       //   return Screen4();
       // case 'Screen5':
@@ -113,7 +115,7 @@ class _CategoriScreenState extends State<CategoriScreen> {
       //   return Screen6();
       default:
       // 기본적으로는 ListScreen을 반환합니다.
-        return ListScreen();
+        return DbahckScreen();
     }
   }
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:moby/model/model_car.dart';
+import 'package:moby/model/model_dbahck.dart';
 
 class ProductColumn extends StatefulWidget {
-  final List<Product> data;
+  final List<Dbahck> data;
   const ProductColumn({Key? key, required this.data}) : super(key: key);
 
   @override
@@ -204,7 +204,7 @@ class _ProductColumnState extends State<ProductColumn> {
 }
 
 class TableScreen extends StatefulWidget {
-  final List<Product> data;
+  final List<Dbahck> data;
   const TableScreen({Key? key, required this.data}) : super(key: key);
 
   @override

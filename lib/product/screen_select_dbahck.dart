@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:moby/model/model_car.dart';
+import 'package:moby/model/model_dbahck.dart';
 
-class ProductScreen extends StatefulWidget {
-  final List<Product> data;
+class SelectDbahckScreen extends StatefulWidget {
+  final List<Dbahck> data;
 
-  ProductScreen({Key? key, required this.data}) : super(key: key);
+  SelectDbahckScreen({Key? key, required this.data}) : super(key: key);
 
   @override
-  _ProductScreenState createState() => _ProductScreenState();
+  _SelectDbahckScreenState createState() => _SelectDbahckScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen> {
-  List<Product> filteredData = [];
+class _SelectDbahckScreenState extends State<SelectDbahckScreen> {
+  List<Dbahck> filteredData = [];
 
   @override
   void initState() {
@@ -100,7 +100,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   children: List.generate(
                     filteredData.length,
                         (index) {
-                      Product product = filteredData[index];
+                          Dbahck product = filteredData[index];
                       return SizedBox(
                         width: 200, // 고정된 너비
                         child: Card(
