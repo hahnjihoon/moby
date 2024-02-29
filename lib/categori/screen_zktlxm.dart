@@ -33,7 +33,7 @@ class _ZktlxmScreenState extends State<ZktlxmScreen> {
       'color': '-',
     }),
     Zktlxm.fromMap({
-      'id': 1,
+      'id': 2,
       'majorClass': '출산/유아동',
       'middleClass': '카시트',
       'minorClass': '카시트',
@@ -50,7 +50,7 @@ class _ZktlxmScreenState extends State<ZktlxmScreen> {
       'color': '-',
     }),
     Zktlxm.fromMap({
-      'id': 1,
+      'id': 3,
       'majorClass': '출산/유아동',
       'middleClass': '카시트',
       'minorClass': '카시트',
@@ -67,7 +67,7 @@ class _ZktlxmScreenState extends State<ZktlxmScreen> {
       'color': '-',
     }),
     Zktlxm.fromMap({
-      'id': 1,
+      'id': 4,
       'majorClass': '출산/유아동',
       'middleClass': '카시트',
       'minorClass': '카시트',
