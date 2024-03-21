@@ -2,6 +2,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:moby/screen/screen_home.dart';
+
 // import 'package:flutter_memo_app/header&footer.dart';
 // import 'package:flutter_memo_app/loginPage/loginDB.dart';
 // import 'package:flutter_memo_app/loginPage/memberRegisterPage.dart';
@@ -16,6 +18,37 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginState extends State<LoginScreen> {
+  int _selectedIndex = 0; // BottomNavigationBar의 선택된 인덱스
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    print('선택된 인덱스: $index');
+
+    switch (index) {
+      case 1:
+      Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ),
+              );
+        break;
+      case 2:
+      // 핸드폰 바탕 화면으로 나가는 동작 수행
+        Navigator.popUntil(context, (route) => route.isFirst);
+        break;
+      case 3:
+      // 바로 이전 페이지로 돌아가는 동작 수행
+        Navigator.pop(context);
+        break;
+
+      default:
+        break;
+    }
+  }
+
   // 자동 로그인 여부
   bool switchValue = false;
 
@@ -155,6 +188,27 @@ class _LoginState extends State<LoginScreen> {
               ],
             ),
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.exit_to_app),
+              label: 'Exit',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.arrow_back),
+              label: 'Back',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blue,
+          onTap: _onItemTapped,
         ),
       ),
     );
