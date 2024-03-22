@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moby/common/rolling_banner.dart';
+import 'screen_categori.dart';
+import 'package:moby/categori/screen_dbahck.dart';
+import 'package:moby/categori/screen_zktlxm.dart';
 
 class MainScreen extends StatefulWidget{
   const MainScreen({super.key});
@@ -28,6 +31,10 @@ class _MainScreenState extends State<MainScreen>{
       case 0:
         break;
       case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => CategoriScreen()),
+        );
         break;
       case 2:
         break;
@@ -120,7 +127,10 @@ class _MainScreenState extends State<MainScreen>{
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            // 유모차 버튼 눌렀을 때 실행할 동작
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => DbahckScreen()),
+                            );
                           },
                           // child: Text('유모차'),
                           child: Image.asset('images/1111.png'),
@@ -141,7 +151,10 @@ class _MainScreenState extends State<MainScreen>{
                       Expanded(
                         child: ElevatedButton(
                           onPressed: () {
-                            // 카시트 버튼 눌렀을 때 실행할 동작
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ZktlxmScreen()),
+                            );
                           },
                           // child: Text('카시트'),
                             child: Image.asset('images/zktlxm.png'),
