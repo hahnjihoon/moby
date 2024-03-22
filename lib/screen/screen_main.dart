@@ -28,8 +28,6 @@ class _MainScreenState extends State<MainScreen>{
       case 0:
         break;
       case 1:
-      // Navigator.popUntil(context, (route) => route.isFirst);
-        SystemNavigator.pop();
         break;
       case 2:
         break;
@@ -65,7 +63,7 @@ class _MainScreenState extends State<MainScreen>{
                     builder: (BuildContext context) {
                       return AlertDialog(
                         title: Text("알림"),
-                        content: Text("메뉴를 눌렀습니다.ㄴㅁㅇㄻㄴㅇㄹ"),
+                        content: Text("메뉴를 눌렀습니다."),
                         actions: [
                           TextButton(
                             onPressed: () {
@@ -105,6 +103,84 @@ class _MainScreenState extends State<MainScreen>{
                   ),
                 ),
                 RollingBanner(),
+                SizedBox(height: 30), // 추가된 간격
+                Text(
+                  '카테고리 선택',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 10), // 추가된 간격
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0), // 좌우 여백 추가
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center, // 가운데 정렬
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // 유모차 버튼 눌렀을 때 실행할 동작
+                          },
+                          // child: Text('유모차'),
+                          child: Image.asset('images/1111.png'),
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: Size(double.infinity, 250), // 높이를 100으로 설정
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10), // 좌측 상단 둥근 모서리
+                                bottomLeft: Radius.circular(10), // 좌측 하단 둥근 모서리
+                                topRight: Radius.circular(10), // 우측 상단 모서리는 네모낳게 유지
+                                bottomRight: Radius.circular(10), // 우측 하단 모서리는 네모낳게 유지
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10), // 버튼 간의 간격 조절
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            // 카시트 버튼 눌렀을 때 실행할 동작
+                          },
+                          // child: Text('카시트'),
+                            child: Image.asset('images/zktlxm.png'),
+                          style: ElevatedButton.styleFrom(
+                            minimumSize: Size(double.infinity, 250), // 높이를 100으로 설정
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10), // 좌측 상단 둥근 모서리
+                                bottomLeft: Radius.circular(10), // 좌측 하단 둥근 모서리
+                                topRight: Radius.circular(10), // 우측 상단 모서리는 네모낳게 유지
+                                bottomRight: Radius.circular(10), // 우측 하단 모서리는 네모낳게 유지
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0), // 좌우 패딩 추가
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black), // 검정색 테두리 적용
+                      borderRadius: BorderRadius.circular(10), // 테두리 둥글기 설정
+                    ),
+                    width: double.infinity, // 부모 위젯의 너비에 맞게 컨테이너를 확장
+                    height: 130, // 높이를 100으로 설정
+                    child: Center(
+                      child: Text(
+                        '푸터영역\n이용약관  개인정보 처리방침 \n (주)모비 서울시성북구삼선동 코오롱본관 \n 01055520440',
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
 
               ],
             ),

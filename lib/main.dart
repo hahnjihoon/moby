@@ -76,7 +76,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     // 일정 시간이 지난 후에 메인 화면으로 이동하는 함수
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MainScreen()),

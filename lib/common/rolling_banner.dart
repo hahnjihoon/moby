@@ -17,7 +17,7 @@ class _RollingBannerState extends State<RollingBanner> {
     _pageController = PageController(initialPage: _currentPage);
 
     // 타이머를 사용하여 페이지 자동 슬라이딩
-    _timer = Timer.periodic(Duration(seconds: 1), (Timer timer) {
+    _timer = Timer.periodic(Duration(seconds: 3), (Timer timer) {
       _currentPage++; // 다음 페이지로 이동
       if (_currentPage >= 3) {
         _currentPage = 0; // 마지막 페이지인 경우 첫 번째 페이지로 이동
@@ -38,7 +38,7 @@ class _RollingBannerState extends State<RollingBanner> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130, // 세로 길이 설정
+      height: 200, // 세로 길이 설정
       margin: EdgeInsets.symmetric(horizontal: 13), // 좌우 여백 설정
       child: PageView(
         controller: _pageController,
