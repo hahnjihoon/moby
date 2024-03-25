@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moby/common/rolling_banner.dart';
 import 'screen_categori.dart';
-import 'package:moby/categori/screen_dbahck.dart';
+import 'screen_productlist.dart';
 import 'package:moby/categori/screen_zktlxm.dart';
 
 class MainScreen extends StatefulWidget{
@@ -129,7 +129,7 @@ class _MainScreenState extends State<MainScreen>{
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => DbahckScreen()),
+                              MaterialPageRoute(builder: (context) => ProductlistScreen(category: '유모차')),
                             );
                           },
                           // child: Text('유모차'),
@@ -239,7 +239,7 @@ class _MainScreenState extends State<MainScreen>{
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text("알림"),
-          content: Text("$searchText 로고를 눌렀습니다."),
+          content: Text("$searchText 검색을 눌렀습니다."),
           actions: [
             TextButton(
               onPressed: () {
