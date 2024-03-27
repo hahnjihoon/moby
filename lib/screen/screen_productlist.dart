@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moby/screen/screen_main.dart';
 import 'package:moby/screen/screen_categori.dart';
 import 'package:moby/apis/product_api.dart';
+import 'package:moby/model/model_dbahck.dart';
 
 class ProductlistScreen extends StatefulWidget{
   // const ProductlistScreen({super.key});
@@ -16,11 +17,26 @@ class ProductlistScreen extends StatefulWidget{
 }
 
 class _ProductlistScreenState extends State<ProductlistScreen>{
+  List<Dbahck> _data = [];
+
   @override
   void initState() {
     super.initState();
     print('받은 카테고리: ${widget.category}');
+    _fetchData();
+  }
 
+  Future<void> _fetchData() async {
+    try {
+      List<dynamic> data = await getProductsData();
+ // 데이터가 null이 아닌 경우에만 처리
+      setState(() {
+        _data = data.map((item) => Dbahck.fromMap(item)).toList();
+      });
+        } catch (e) {
+      // 오류 처리
+      print('Error fetching data 에러남 : $e');
+    }
   }
 
   void _onItemTapped(int index) {
@@ -219,7 +235,11 @@ class _ProductlistScreenState extends State<ProductlistScreen>{
                           ],
                         ),
                       ),
-
+                      Center(
+                        child: _data.isNotEmpty
+                            ? Text('Data from backend: ${_data[0].productName}')
+                            : CircularProgressIndicator(),
+                      ),
                     ]
                   )
                 ),
