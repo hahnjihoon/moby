@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:moby/common/rolling_banner.dart';
 import 'screen_categori.dart';
 import 'screen_productlist.dart';
@@ -153,7 +152,7 @@ class _MainScreenState extends State<MainScreen>{
                           onPressed: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ZktlxmScreen()),
+                              MaterialPageRoute(builder: (context) => ProductlistScreen(category: '카시트')),
                             );
                           },
                           // child: Text('카시트'),

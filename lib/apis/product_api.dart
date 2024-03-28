@@ -4,8 +4,8 @@ import 'base_url.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-Future getProductsData() async {
-  final Uri url = Uri.parse('$BASE_URL/products');
+Future getProductsData(String? category) async {
+  final Uri url = Uri.parse('$BASE_URL/products?category=$category');
 
   try {
     final response = await http.get(url,
