@@ -75,6 +75,10 @@ class _ProductlistScreenState extends State<ProductlistScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    double width = screenSize.width;
+    double height = screenSize.height;
+
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
@@ -131,17 +135,17 @@ class _ProductlistScreenState extends State<ProductlistScreen> {
                     Spacer(), // 텍스트빼고 나머지 다 빈공간추가하는코드
                     widget.category == '유모차'
                         ? Image.asset(
-                      'images/car1.png', // 유모차 이미지 경로
-                      width: 40, // 이미지 너비 조절
-                      height: 40, // 이미지 높이 조절
-                    )
+                            'images/car1.png', // 유모차 이미지 경로
+                            width: 40, // 이미지 너비 조절
+                            height: 40, // 이미지 높이 조절
+                          )
                         : widget.category == '카시트'
-                        ? Image.asset(
-                      'images/zktlxm.png', // 카시트 이미지 경로
-                      width: 40, // 이미지 너비 조절
-                      height: 40, // 이미지 높이 조절
-                    )
-                        : SizedBox(), // 다른 경우에는 빈 공간 처리
+                            ? Image.asset(
+                                'images/zktlxm.png', // 카시트 이미지 경로
+                                width: 40, // 이미지 너비 조절
+                                height: 40, // 이미지 높이 조절
+                              )
+                            : SizedBox(), // 다른 경우에는 빈 공간 처리
                   ],
                 ),
               ),
@@ -243,65 +247,64 @@ class _ProductlistScreenState extends State<ProductlistScreen> {
                       ],
                     ),
                   ),
-                      SizedBox(height: 20),
-                      Center(
-                        child: _data.isNotEmpty
-                            ? SingleChildScrollView(
-                          child: Column(
-                            children: _data.map((item) {
-                              return GestureDetector(
-                                onTap: () {
-                                  // 다음 화면으로 이동하면서 데이터 전달
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ProductdetailScreen(items: item),
-                                    ),
-                                  );
-                                },
-                                child: Card(
-                                  // Card를 사용하여 각 ListTile을 감싸고, 테두리를 설정합니다.
-                                  elevation: 3, // 그림자 효과를 추가합니다.
-                                  margin: EdgeInsets.all(10), // Card의 여백을 지정합니다.
-                                  shape: RoundedRectangleBorder(
-                                    // 테두리 모양을 설정합니다.
-                                    borderRadius: BorderRadius.circular(10), // Card의 모서리를 둥글게 만듭니다.
-                                    side: const BorderSide(
-                                      // 테두리의 색상과 너비를 설정합니다.
-                                      color: Colors.black, // 테두리의 색상을 검정색으로 설정합니다.
-                                      width: 1, // 테두리의 너비를 1로 설정합니다.
-                                    ),
-                                  ),
-                                  child: ListTile(
-                                    leading: Image.network(
-                                      item.imageUrl, // 이미지 URL
-                                      width: 100, // 이미지 너비 조절
-                                      height: 100, // 이미지 높이 조절
-                                    ),
-                                    title: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(item.productName), // 제품 이름 출력
-                                        // 가격 출력
-                                      ],
-                                    ),
-                                    subtitle: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(item.price.toString()),
-                                        Text(item.brand), // 브랜드 출력
-                                        Text(item.size), // 사이즈 출력
-                                      ],
-                                    ),
-                                    // 필요한 데이터를 ListTile에 추가로 출력할 수 있습니다.
-                                  ),
+                  SizedBox(height: 20),
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: _data.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        Dbahck product = _data[index];
+                        return GestureDetector(
+                          //길게누르거나 선택하는 속성 쓸때 씌움
+                          onTap: () {
+                            // 다음 화면으로 이동하면서 데이터 전달
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    ProductdetailScreen(items: product),
+                              ),
+                            );
+                          },
+                          onLongPress: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.all(
+                                    30), // 모든 측면에 대해 10의 패딩을 설정합니다.
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.black,
+                                      width: 2), // 검정 테두리 설정
+                                  borderRadius: BorderRadius.circular(
+                                      10), // 테두리를 둥글게 만들기 위한 설정
                                 ),
-                              );
-                            }).toList(),
+                                child: Image.network(
+                                  product.imageUrl,
+                                  width: 200,
+                                  height: 350,
+                                ),
+                              ),
+                              Expanded(
+                                  child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(product.productName),
+                                  Text(product.price.toString()),
+                                  Text(product.brand), // 브랜드 출력
+                                  Text(product.size),
+                                ],
+                              ))
+                            ],
                           ),
-                        )
-                            : CircularProgressIndicator(), // 데이터가 없는 경우에는 로딩 표시
-                      ),
+                        );
+                        // Card를 사용하여 각 ListTile을 감싸고, 테두리를 설정합니다.
+
+                        // 필요한 데이터를 ListTile에 추가로 출력할 수 있습니다.
+                      },
+                    ),
+                  ),
                 ])),
               ),
             ],
