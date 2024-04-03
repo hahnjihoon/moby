@@ -254,51 +254,63 @@ class _ProductlistScreenState extends State<ProductlistScreen> {
                       itemBuilder: (BuildContext context, int index) {
                         Dbahck product = _data[index];
                         return GestureDetector(
-                          //길게누르거나 선택하는 속성 쓸때 씌움
-                          onTap: () {
-                            // 다음 화면으로 이동하면서 데이터 전달
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    ProductdetailScreen(items: product),
-                              ),
-                            );
-                          },
-                          onLongPress: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(
-                                    30), // 모든 측면에 대해 10의 패딩을 설정합니다.
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: Colors.black,
-                                      width: 2), // 검정 테두리 설정
-                                  borderRadius: BorderRadius.circular(
-                                      10), // 테두리를 둥글게 만들기 위한 설정
+                            //길게누르거나 선택하는 속성 쓸때 씌움
+                            onTap: () {
+                              // 다음 화면으로 이동하면서 데이터 전달
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      ProductdetailScreen(item: product),
                                 ),
-                                child: Image.network(
-                                  product.imageUrl,
-                                  width: 200,
-                                  height: 350,
-                                ),
-                              ),
-                              Expanded(
-                                  child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(product.productName),
-                                  Text(product.price.toString()),
-                                  Text(product.brand), // 브랜드 출력
-                                  Text(product.size),
-                                ],
-                              ))
-                            ],
-                          ),
-                        );
+                              );
+                            },
+                            onLongPress: () {},
+                            child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 9.0, horizontal: 16),
+
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colors.black, width: 2),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(
+                                            30), // 모든 측면에 대해 10의 패딩을 설정합니다.
+                                        // decoration: BoxDecoration(
+                                        //   border: Border.all(
+                                        //       color: Colors.black,
+                                        //       width: 2), // 검정 테두리 설정
+                                        //   borderRadius: BorderRadius.circular(
+                                        //       10), // 테두리를 둥글게 만들기 위한 설정
+                                        // ),
+                                        child: Image.network(
+                                          product.imageUrl,
+                                          width: 150,
+                                          height: 150,
+                                        ),
+                                      ),
+                                      Expanded(
+                                          child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(product.productName),
+                                          Text(product.price.toString()),
+                                          Text(product.brand), // 브랜드 출력
+                                          Text(product.size),
+                                        ],
+                                      )),
+                                    ],
+                                  ),
+                                )));
                         // Card를 사용하여 각 ListTile을 감싸고, 테두리를 설정합니다.
 
                         // 필요한 데이터를 ListTile에 추가로 출력할 수 있습니다.
