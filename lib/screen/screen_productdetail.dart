@@ -116,12 +116,12 @@ class _ProductdetailScreenState extends State<ProductdetailScreen> {
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               // 이미지
               Image.network(
                 widget.item.imageUrl,
                 width: width*0.8,
-                height: 400,
+                height: 300,
                 fit: BoxFit.cover,
               ),
               SizedBox(height: 20), // 간격 조절을 위한 SizedBox 추가
@@ -282,14 +282,36 @@ class _ProductdetailScreenState extends State<ProductdetailScreen> {
                           )
 
                         ],
-                      )
+                      ),
+
 
 
                     ],
                   ),
 
                 ],
+
               ),
+              SizedBox(height: 20,),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigator.push(
+                  // context,
+                  // MaterialPageRoute(builder: (context) => ProductlistScreen(category: '유모차')),
+                  // );
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent), // 배경색을 투명으로 설정
+                  minimumSize: MaterialStateProperty.all<Size>(const Size(200, 70)), // 크기 설정
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(0.0), // 버튼의 모서리를 둥글게 할지 설정 (0.0으로 설정하면 직사각형)
+                      side: const BorderSide(color: Colors.black), // 테두리 색상 설정
+                    ),
+                  ),
+                ),
+                child: Text('구매하기', style: TextStyle(color: Colors.black)),
+              )
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(

@@ -250,8 +250,7 @@ class _ZktlxmScreenState extends State<ZktlxmScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.deepPurple,
-                      onPrimary: Colors.white,
+                      foregroundColor: Colors.white, backgroundColor: Colors.deepPurple,
                     ),
                     child: const Text(
                       '월드컵비교',
@@ -303,8 +302,7 @@ class _ZktlxmScreenState extends State<ZktlxmScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.deepPurple,
-                      onPrimary: Colors.white,
+                      foregroundColor: Colors.white, backgroundColor: Colors.deepPurple,
                     ),
                     child: const Text(
                       '테이블비교',

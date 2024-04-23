@@ -109,7 +109,7 @@ class _MainScreenState extends State<MainScreen>{
                   ),
                 ),
                 RollingBanner(),
-                SizedBox(height: 30), // 추가된 간격
+                SizedBox(height: 20), // 추가된 간격
                 Text(
                   '카테고리 선택',
                   style: TextStyle(
@@ -173,7 +173,7 @@ class _MainScreenState extends State<MainScreen>{
                     ],
                   ),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0), // 좌우 패딩 추가
                   child: Container(
@@ -182,7 +182,7 @@ class _MainScreenState extends State<MainScreen>{
                       borderRadius: BorderRadius.circular(10), // 테두리 둥글기 설정
                     ),
                     width: double.infinity, // 부모 위젯의 너비에 맞게 컨테이너를 확장
-                    height: 130, // 높이를 100으로 설정
+                    height: 100, // 높이를 100으로 설정
                     child: Center(
                       child: Text(
                         '푸터영역\n이용약관  개인정보 처리방침 \n (주)모비 서울시성북구삼선동 코오롱본관 \n 01055520440',

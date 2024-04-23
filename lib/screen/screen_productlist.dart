@@ -135,7 +135,7 @@ class _ProductlistScreenState extends State<ProductlistScreen> {
                     Spacer(), // 텍스트빼고 나머지 다 빈공간추가하는코드
                     widget.category == '유모차'
                         ? Image.asset(
-                            'images/car1.png', // 유모차 이미지 경로
+                            'images/car1.PNG', // 유모차 이미지 경로
                             width: 40, // 이미지 너비 조절
                             height: 40, // 이미지 높이 조절
                           )
@@ -204,49 +204,49 @@ class _ProductlistScreenState extends State<ProductlistScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10), // 버튼과 B 사이 간격 조정
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text('B 4'),
-                          ),
-                        ),
-                        SizedBox(width: 10), // B 사이 간격 조정
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text('B 5'),
-                          ),
-                        ),
-                        SizedBox(width: 10), // B 사이 간격 조정
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text('B 6'),
-                          ),
-                        ),
-                        SizedBox(width: 10), // B 사이 간격 조정
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text('B 7'),
-                          ),
-                        ),
-                        SizedBox(width: 10), // B 사이 간격 조정
-                        Expanded(
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text('B 8'),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // SizedBox(height: 10), // 버튼과 B 사이 간격 조정
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //     children: [
+                  //       Expanded(
+                  //         child: ElevatedButton(
+                  //           onPressed: () {},
+                  //           child: Text('B 4'),
+                  //         ),
+                  //       ),
+                  //       SizedBox(width: 10), // B 사이 간격 조정
+                  //       Expanded(
+                  //         child: ElevatedButton(
+                  //           onPressed: () {},
+                  //           child: Text('B 5'),
+                  //         ),
+                  //       ),
+                  //       SizedBox(width: 10), // B 사이 간격 조정
+                  //       Expanded(
+                  //         child: ElevatedButton(
+                  //           onPressed: () {},
+                  //           child: Text('B 6'),
+                  //         ),
+                  //       ),
+                  //       SizedBox(width: 10), // B 사이 간격 조정
+                  //       Expanded(
+                  //         child: ElevatedButton(
+                  //           onPressed: () {},
+                  //           child: Text('B 7'),
+                  //         ),
+                  //       ),
+                  //       SizedBox(width: 10), // B 사이 간격 조정
+                  //       Expanded(
+                  //         child: ElevatedButton(
+                  //           onPressed: () {},
+                  //           child: Text('B 8'),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   SizedBox(height: 20),
                   Expanded(
                     child: ListView.builder(
@@ -320,6 +320,20 @@ class _ProductlistScreenState extends State<ProductlistScreen> {
                 ])),
               ),
             ],
+
+          ),
+          floatingActionButton: Container(
+            alignment: Alignment.bottomCenter,
+            margin: EdgeInsets.only(bottom: 10, left: 20),
+            child: SizedBox(
+              width: 150,
+              height: 50,
+              child: FloatingActionButton(
+                onPressed: (){},
+                tooltip: 'Select Image',
+                child: Text('비교하기'),
+              ),
+            ),
           ),
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
